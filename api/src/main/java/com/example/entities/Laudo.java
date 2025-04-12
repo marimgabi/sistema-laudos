@@ -1,5 +1,7 @@
 package com.example.entities;
 
+import com.example.Enums.EnumStatus;
+import com.example.Enums.converter.EnumStatusConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -46,6 +48,7 @@ public class Laudo {
     private Date dataAlteracao;
 
     @Column(name = "status")
-    private String status;
+    @Convert(converter = EnumStatusConverter.class)
+    private EnumStatus status;
 }
 

@@ -1,5 +1,9 @@
 package com.example.entities;
 
+import com.example.Enums.EnumStatus;
+import com.example.Enums.EnumTipoMedico;
+import com.example.Enums.converter.EnumStatusConverter;
+import com.example.Enums.converter.EnumTipoMedicoConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +24,8 @@ public class Medico {
     private String nome;
 
     @Column(name = "tipo")
-    private String tipo;
+    @Convert(converter = EnumTipoMedicoConverter.class)
+    private EnumTipoMedico tipo;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
@@ -37,6 +42,7 @@ public class Medico {
     private Date dataAlteracao;
 
     @Column(name = "status")
-    private String status;
+    @Convert(converter = EnumStatusConverter.class)
+    private EnumStatus status;
 }
 

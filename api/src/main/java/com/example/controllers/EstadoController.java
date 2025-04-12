@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import com.example.dto.EstadoDto;
 import com.example.entities.Estado;
 import com.example.services.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class EstadoController {
     private EstadoService estadoService;
 
     @GetMapping
-    public ResponseEntity<List<Estado>> findAll(){
-        List<Estado> estadoList = estadoService.findAll();
+    public ResponseEntity<List<EstadoDto>> findAll(){
+        List<EstadoDto> estadoList = estadoService.findAll();
         return ResponseEntity.ok(estadoList);
     }
 
