@@ -4,7 +4,7 @@ import com.example.Enums.EnumStatus;
 import com.example.dto.MedicoDto;
 import com.example.dto.UserDto;
 import com.example.dto.login.RegisterRequest;
-import com.example.entities.Medico;
+import com.example.dto.login.UserLoginDto;
 import com.example.entities.Role;
 import com.example.entities.User;
 import com.example.mapper.EntityDtoMapper;
@@ -56,7 +56,7 @@ public class UserService {
 
         if(userDto.getMedico() != null){
             MedicoDto medicoDto = medicoService.create(userDto.getMedico(), user);
-            userCreated.setMedico(medicoDto);
+            userCreated.getMedicos().add(medicoDto);
         }
 
         return userCreated;
@@ -68,5 +68,11 @@ public class UserService {
 
         return userRepository.findByEmailAndStatus(email, EnumStatus.ATIVO)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário logado não encontrado"));
+    }
+
+    public UserLoginDto getUsuariologado(String email){
+        User user = userRepository.findByEmailAndStatus(email, EnumStatus.ATIVO)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuário com email " + email + " não encontrado!"));
+        return (UserLoginDto) mapper.entityToDto(user, UserLoginDto.class);
     }
 }

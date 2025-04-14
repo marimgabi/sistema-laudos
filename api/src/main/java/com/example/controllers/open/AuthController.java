@@ -5,6 +5,7 @@ import com.example.dto.UserDto;
 import com.example.dto.login.LoginRequest;
 import com.example.dto.login.LoginResponse;
 import com.example.dto.login.RegisterRequest;
+import com.example.dto.login.UserLoginDto;
 import com.example.security.CustomUserDetailsService;
 import com.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,11 @@ public class AuthController {
 
         String jwt = jwtTokenProvider.generateToken(authentication.getName());
 
-        LoginResponse loginResponse = new LoginResponse(jwt);
+        LoginResponse loginResponse = new LoginResponse();
+        loginResponse.setToken(jwt);
+
+        UserLoginDto userDto = userService.getUsuariologado(loginRequest.getEmail());
+        loginResponse.setUser(userDto);
 
         return ResponseEntity.ok(loginResponse);
     }

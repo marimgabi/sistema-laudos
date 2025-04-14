@@ -1,0 +1,84 @@
+# ----------------------------
+# FRONTEND (central-laudos)
+# ----------------------------
+
+# Compiled output
+/front/central-laudos/dist
+/front/central-laudos/tmp
+/front/central-laudos/out-tsc
+/front/central-laudos/bazel-out
+
+# Node
+/front/central-laudos/node_modules
+/front/central-laudos/npm-debug.log
+/front/central-laudos/yarn-error.log
+
+# IDEs and editors
+/front/central-laudos/.idea/
+.front/central-laudos/project
+/front/central-laudos/.classpath
+/front/central-laudos/.c9/
+.front/central-laudos/*.launch
+/front/central-laudos/.settings/
+.front/central-laudos/*.sublime-workspace
+
+# Visual Studio Code
+/front/central-laudos/.vscode/*
+!/front/central-laudos/.vscode/settings.json
+!/front/central-laudos/.vscode/tasks.json
+!/front/central-laudos/.vscode/launch.json
+!/front/central-laudos/.vscode/extensions.json
+/front/central-laudos/.history/*
+
+# Miscellaneous
+/front/central-laudos/.angular/cache
+/front/central-laudos/.sass-cache/
+.front/central-laudos/connect.lock
+/front/central-laudos/coverage
+/front/central-laudos/libpeerconnection.log
+/front/central-laudos/testem.log
+/front/central-laudos/typings
+
+# ----------------------------
+# BACKEND (api)
+# ----------------------------
+
+/api/HELP.md
+/api/target/
+/api/nbbuild/
+/api/dist/
+/api/nbdist/
+/api/.nb-gradle/
+/api/build/
+!/api/**/src/main/**/target/
+/!api/**/src/test/**/target/
+/!api/**/src/main/**/build/
+/!api/**/src/test/**/build/
+/api/.mvn/wrapper/maven-wrapper.jar
+
+# STS
+/api/.apt_generated
+/api/.classpath
+/api/.factorypath
+/api/.project
+/api/.settings
+/api/.springBeans
+/api/.sts4-cache
+
+# IntelliJ IDEA
+/api/.idea
+/api/*.iws
+/api/*.iml
+/api/*.ipr
+
+# NetBeans
+/api/nbproject/private/
+
+# VS Code
+/api/.vscode/
+
+# ----------------------------
+# SYSTEM FILES (gerais)
+# ----------------------------
+.DS_Store
+Thumbs.db

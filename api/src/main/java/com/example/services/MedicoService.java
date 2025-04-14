@@ -11,6 +11,8 @@ import com.example.validator.MedicoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MedicoService {
 
@@ -39,6 +41,11 @@ public class MedicoService {
         medico = medicoRepository.save(medico);
 
         return (MedicoDto) mapper.entityToDto(medico, MedicoDto.class);
+    }
+
+    public List<MedicoDto> findAll(){
+        List<Medico> medicos = medicoRepository.findAllByStatus(EnumStatus.ATIVO);
+        return mapper.entityToDtoList(medicos, MedicoDto.class);
     }
 
 }

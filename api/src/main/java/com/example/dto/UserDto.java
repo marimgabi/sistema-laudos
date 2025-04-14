@@ -1,5 +1,6 @@
 package com.example.dto;
 
+import com.example.dto.login.MedicoLoginDto;
 import lombok.Data;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public class UserDto {
 
     private String username;
 
-    private MedicoDto medico;
+    private List<MedicoDto> medicos;
 }

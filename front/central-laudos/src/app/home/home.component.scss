@@ -1,0 +1,25 @@
+.main-container {
+    height: 100vh;
+  }
+  
+  .sidenav {
+    width: 250px;
+    background-color: #3f51b5; // Cor azul padrão do Angular Material
+    color: #fff;
+  }
+  
+  .menu-title {
+    margin: 16px;
+    font-size: 20px;
+  }
+  
+  .mat-list-item {
+    cursor: pointer;
+    &:hover {
+      background-color: #3949ab; // Azul um pouco mais escuro ao passar o mouse
+    }
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
