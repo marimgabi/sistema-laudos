@@ -1,19 +1,15 @@
 package com.example.Enums;
 
-import lombok.Getter;
-
-@Getter
-public enum EnumStatus implements EnumString{
-
-    ATIVO("A", "Ativo"),
-    INATIVO("I", "Inativo");
+public enum EnumTipoTemplate implements EnumString{
+    TEXTO("TEXTO", "Texto plano"),
+    HTML("HTML", "Html");
 
 
     private final String valor;
     private final String descricao;
 
 
-    EnumStatus(String valor, String descricao) {
+    EnumTipoTemplate(String valor, String descricao) {
         this.valor = valor;
         this.descricao = descricao;
     }
@@ -29,5 +25,4 @@ public enum EnumStatus implements EnumString{
     public String toString() {
         return descricao;
     }
-
 }

@@ -1,6 +1,8 @@
 package com.example.entities;
 
+import com.example.Enums.EnumSexo;
 import com.example.Enums.EnumStatus;
+import com.example.Enums.converter.EnumSexoConverter;
 import com.example.Enums.converter.EnumStatusConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -25,7 +27,8 @@ public class Laudo {
     private String nomePaciente;
 
     @Column(name = "sexo")
-    private String sexo;
+    @Convert(converter = EnumSexoConverter.class)
+    private EnumSexo sexo;
 
     @Column(name = "data_nascimento")
     private Date dataNascimento;
@@ -50,5 +53,16 @@ public class Laudo {
     @Column(name = "status")
     @Convert(converter = EnumStatusConverter.class)
     private EnumStatus status;
+
+    @PrePersist
+    private void prePersist(){
+        this.dataInclusao = new Date();
+        this.dataLaudo = new Date();
+    }
+
+    @PreUpdate
+    private void preUpdate(){
+        this.dataAlteracao = new Date();
+    }
 }
 

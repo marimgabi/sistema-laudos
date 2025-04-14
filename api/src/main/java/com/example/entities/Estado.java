@@ -33,4 +33,14 @@ public class Estado {
     @Column(name = "status")
     @Convert(converter = EnumStatusConverter.class)
     private EnumStatus status;
+
+    @PrePersist
+    private void prePersist(){
+        this.dataInclusao = new Date();
+    }
+
+    @PreUpdate
+    private void preUpdate(){
+        this.dataAlteracao = new Date();
+    }
 }

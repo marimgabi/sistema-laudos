@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,9 +25,9 @@ public class User {
 
     private String password;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id_role")
-//    private Role role;
+    @ManyToOne
+    @JoinColumn(name = "id_role")
+    private Role role;
 
     @Column(name = "data_inclusao")
     private Date dataInclusao;
@@ -36,4 +37,17 @@ public class User {
 
     @Convert(converter = EnumStatusConverter.class)
     private EnumStatus status;
+
+    @OneToMany(mappedBy = "user")
+    private List<Medico> medicos;
+
+    @PrePersist
+    private void prePersist(){
+        this.dataInclusao = new Date();
+    }
+
+    @PreUpdate
+    private void preUpdate(){
+        this.dataAlteracao = new Date();
+    }
 }

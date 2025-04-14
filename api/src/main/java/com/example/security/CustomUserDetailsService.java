@@ -1,5 +1,6 @@
 package com.example.security;
 
+import com.example.Enums.EnumStatus;
 import com.example.entities.User;
 import com.example.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(username)
+        User user = userRepository.findByEmailAndStatus(username, EnumStatus.ATIVO)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + username));
 
         return new UserDetailsImpl(user);

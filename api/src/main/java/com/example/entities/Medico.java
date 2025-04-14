@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "medico")
@@ -35,6 +37,14 @@ public class Medico {
     @JoinColumn(name = "id_conselho")
     private Conselho conselho;
 
+    @ManyToMany
+    @JoinTable(
+            name = "medico_template",
+            joinColumns = @JoinColumn(name = "id_medico"),
+            inverseJoinColumns = @JoinColumn(name = "id_template")
+    )
+    private Set<Template> templates = new HashSet<>();
+
     @Column(name = "data_inclusao")
     private Date dataInclusao;
 
@@ -44,5 +54,15 @@ public class Medico {
     @Column(name = "status")
     @Convert(converter = EnumStatusConverter.class)
     private EnumStatus status;
+
+    @PrePersist
+    private void prePersist(){
+        this.dataInclusao = new Date();
+    }
+
+    @PreUpdate
+    private void preUpdate(){
+        this.dataAlteracao = new Date();
+    }
 }
 

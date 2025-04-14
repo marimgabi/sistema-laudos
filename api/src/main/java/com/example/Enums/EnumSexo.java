@@ -1,19 +1,16 @@
 package com.example.Enums;
 
-import lombok.Getter;
+public enum EnumSexo implements EnumString{
 
-@Getter
-public enum EnumStatus implements EnumString{
-
-    ATIVO("A", "Ativo"),
-    INATIVO("I", "Inativo");
+    FEMININO("F", "Feminino"),
+    MASCULINO("M", "Masculino");
 
 
     private final String valor;
     private final String descricao;
 
 
-    EnumStatus(String valor, String descricao) {
+    EnumSexo(String valor, String descricao) {
         this.valor = valor;
         this.descricao = descricao;
     }
@@ -29,5 +26,4 @@ public enum EnumStatus implements EnumString{
     public String toString() {
         return descricao;
     }
-
 }
