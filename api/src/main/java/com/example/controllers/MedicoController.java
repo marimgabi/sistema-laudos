@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import com.example.Enums.EnumTipoMedico;
 import com.example.dto.MedicoDto;
 import com.example.services.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,11 @@ public class MedicoController {
     public ResponseEntity<List<MedicoDto>> getAll(){
         List<MedicoDto> medicoDtoList = medicoService.findAll();
         return ResponseEntity.ok(medicoDtoList);
+    }
+
+    @GetMapping("/solicitante")
+    public ResponseEntity<List<MedicoDto>> getAllSolicitante(){
+        List<MedicoDto> medicos = medicoService.findAllMedicosByTipo(EnumTipoMedico.SOLICITANTE);
+        return ResponseEntity.ok(medicos);
     }
 }

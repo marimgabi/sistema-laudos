@@ -1,0 +1,65 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: #fff;
+    padding: 2rem;
+    color: #232324;
+  }
+  
+  .template-card {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #314ce0;
+    margin: 0.5rem 0 1rem 0;
+  }
+  
+  .tipo {
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  
+  .conteudo {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .caixa-texto {
+    background-color: #f5f7fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .html-render {
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+  
+    h1, h2, h3, p {
+      margin: 0.5rem 0;
+    }
+  }
+  

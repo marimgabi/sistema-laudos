@@ -54,7 +54,7 @@ public class LaudoService {
     }
 
     public LaudoDto update(LaudoDto laudoDto, Integer id){
-        Laudo laudoNew = (Laudo) mapper.dtoToEntity(laudoDto, LaudoDto.class);
+        Laudo laudoNew = (Laudo) mapper.dtoToEntity(laudoDto, Laudo.class);
 
         Laudo laudoOld = laudoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Não foi encontrado laudo com id " + laudoNew.getId()));
@@ -100,5 +100,23 @@ public class LaudoService {
         }
 
         return mapper.entityToDtoList(laudos, LaudoDto.class);
+    }
+
+    public LaudoDto findById(Integer id){
+        Laudo laudo = laudoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Não foi encontrado laudo com id " + id));
+
+        return (LaudoDto) mapper.entityToDto(laudo, LaudoDto.class);
+    }
+
+    public LaudoDto inativate(Integer id){
+        Laudo laudo = laudoRepository.findAllByIdAndStatus(id, EnumStatus.ATIVO)
+                .orElseThrow(() -> new IllegalArgumentException("Não foi possível encontrar laudo com id " + id));
+
+        laudo.setStatus(EnumStatus.INATIVO);
+
+        laudo = laudoRepository.save(laudo);
+
+        return (LaudoDto) mapper.entityToDto(laudo, LaudoDto.class);
     }
 }

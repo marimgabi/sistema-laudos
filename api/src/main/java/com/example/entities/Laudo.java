@@ -57,7 +57,6 @@ public class Laudo {
     @PrePersist
     private void prePersist(){
         this.dataInclusao = new Date();
-        this.dataLaudo = new Date();
     }
 
     @PreUpdate

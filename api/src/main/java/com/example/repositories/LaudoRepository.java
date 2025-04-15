@@ -20,4 +20,6 @@ public interface LaudoRepository extends JpaRepository<Laudo, Integer> {
 
     List<Laudo> findAllByStatus(EnumStatus status);
 
+    Optional<Laudo> findAllByIdAndStatus(Integer id, EnumStatus status);
+
 }

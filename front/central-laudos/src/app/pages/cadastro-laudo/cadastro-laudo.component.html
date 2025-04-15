@@ -1,0 +1,64 @@
+<mat-card>
+    <h2>Cadastrar Laudo</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do Paciente</mat-label>
+        <input matInput formControlName="nomePaciente" required />
+      </mat-form-field>
+  
+      <!-- Sexo -->
+      <div class="row">
+        <div class="sexo-field">
+          <label>Sexo:</label>
+          <mat-radio-group formControlName="sexo" class="sexo-opcoes">
+            <mat-radio-button *ngFor="let s of sexos" [value]="s">{{ s }}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      
+        <!-- Data nascimento -->
+        <mat-form-field appearance="outline">
+          <mat-label>Data de Nascimento</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="dataNascimento" required />
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      
+        <!-- Data do laudo -->
+        <mat-form-field appearance="outline">
+          <mat-label>Data do Laudo</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="dataLaudo" required />
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Médico Solicitante</mat-label>
+        <mat-select formControlName="medicoSolicitante" required>
+          <mat-option *ngFor="let m of solicitantes" [value]="m.id">{{ m.nome }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Templates -->
+      <div class="template-list" *ngIf="templates.length">
+        <label>Templates:</label>
+        <div class="template-card" *ngFor="let t of templates">
+          <span>{{ t.descricao }}</span>
+          <button mat-icon-button type="button" color="primary" (click)="adicionarTemplate(t.conteudo)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Conteúdo</mat-label>
+        <textarea matInput rows="6" formControlName="conteudo" required></textarea>
+      </mat-form-field>
+  
+      <div class="actions">
+        <button mat-stroked-button type="button" (click)="cancelar()">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Salvar</button>
+      </div>
+    </form>
+  </mat-card>
+  

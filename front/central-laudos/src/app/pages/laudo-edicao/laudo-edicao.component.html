@@ -1,0 +1,55 @@
+<mat-card>
+    <h2>Editar Laudo</h2>
+  
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form-grid">
+      <!-- Nome do paciente -->
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do Paciente</mat-label>
+        <input matInput formControlName="nomePaciente" />
+      </mat-form-field>
+  
+      <!-- Sexo -->
+      <div class="form-field">
+        <label class="form-label">Sexo:</label>
+        <mat-radio-group formControlName="sexo" class="sexo-radio">
+          <mat-radio-button *ngFor="let s of sexos" [value]="s">{{ s }}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <!-- Datas -->
+      <mat-form-field appearance="outline">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="dataNascimento" />
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Data do Laudo</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="dataLaudo" />
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+  
+      <!-- Solicitante -->
+      <mat-form-field appearance="outline">
+        <mat-label>Médico Solicitante</mat-label>
+        <mat-select formControlName="medicoSolicitante">
+          <mat-option *ngFor="let m of solicitantes" [value]="m.id">{{ m.nome }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Conteúdo -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Conteúdo</mat-label>
+        <textarea matInput rows="6" formControlName="conteudo"></textarea>
+      </mat-form-field>
+  
+      <!-- Ações -->
+      <div class="actions">
+        <button mat-stroked-button type="button" (click)="cancelar()">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Salvar</button>
+      </div>
+    </form>
+  </mat-card>
+  

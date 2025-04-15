@@ -1,0 +1,35 @@
+<mat-card *ngIf="laudo" class="laudo-card">
+    <div class="header">
+      <button mat-icon-button type="button" (click)="voltar()" aria-label="Voltar">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+  
+      <h2>Laudo #{{ laudo.id }}</h2>
+  
+      <button *ngIf="isMedicoExecutante" mat-raised-button color="primary" (click)="editar()">
+        <mat-icon>edit</mat-icon>
+        Editar
+      </button>
+    </div>
+  
+    <div class="info-section">
+      <p><strong>Paciente:</strong> {{ laudo.nomePaciente }}</p>
+      <p><strong>Sexo:</strong> {{ laudo.sexo }}</p>
+      <p><strong>Data de Nascimento:</strong> {{ laudo.dataNascimento | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Data do Laudo:</strong> {{ laudo.dataLaudo | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Solicitante:</strong> {{ laudo.medicoSolicitante?.nome }}</p>
+      <p *ngIf="laudo.medicoExecutante"><strong>Executante:</strong> {{ laudo.medicoExecutante?.nome }}</p>
+    </div>
+  
+    <div class="conteudo-section">
+      <h3>Conteúdo do Laudo</h3>
+    
+      <div class="conteudo-box" *ngIf="!isHtml">
+        {{ conteudoSeguro }}
+      </div>
+    
+      <div class="conteudo-box" *ngIf="isHtml" [innerHTML]="conteudoSeguro">
+      </div>
+    </div>
+  </mat-card>
+  

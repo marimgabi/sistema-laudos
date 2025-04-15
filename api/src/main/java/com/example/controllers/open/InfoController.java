@@ -1,5 +1,6 @@
 package com.example.controllers.open;
 
+import com.example.Enums.EnumSexo;
 import com.example.Enums.EnumStatus;
 import com.example.Enums.EnumTipoMedico;
 import com.example.Enums.EnumTipoTemplate;
@@ -45,6 +46,13 @@ public class InfoController {
     @GetMapping("/enum/tipo-template")
     public List<String> getTipoTemplateValues() {
         return Arrays.stream(EnumTipoTemplate.values())
+                .map(Enum::name)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/enum/sexo")
+    public List<String> getSexoValues() {
+        return Arrays.stream(EnumSexo.values())
                 .map(Enum::name)
                 .collect(Collectors.toList());
     }

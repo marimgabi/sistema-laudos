@@ -23,15 +23,27 @@ public class LaudoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<LaudoDto> update(@RequestBody LaudoDto laudoDto,
-                                           @RequestParam Integer id){
+                                           @PathVariable Integer id){
         LaudoDto laudoDtoUpdated = laudoService.update(laudoDto, id);
         return ResponseEntity.ok(laudoDtoUpdated);
     }
 
     @GetMapping
     public ResponseEntity<List<LaudoDto>> findAll(){
-        List<LaudoDto> laudos = laudoService.findAll();
+        List<LaudoDto> laudos = laudoService.findAllByUser();
         return ResponseEntity.ok(laudos);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<LaudoDto> findById(@PathVariable Integer id){
+        LaudoDto laudo = laudoService.findById(id);
+        return ResponseEntity.ok(laudo);
+    }
+
+    @GetMapping("/{id}/inativate")
+    public ResponseEntity<LaudoDto> inativateLaudo(@PathVariable Integer id){
+        LaudoDto laudo = laudoService.inativate(id);
+        return ResponseEntity.ok(laudo);
     }
 
 }

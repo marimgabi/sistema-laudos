@@ -1,0 +1,106 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: #fff;
+    padding: 2rem;
+  }
+  
+  mat-card {
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #fff;
+  
+    h2 {
+      color: #314ce0;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+  }
+  
+  .form-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  
+    label {
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+  
+    .sexo-radio {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+  
+  .template-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  
+    label {
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+  
+    .template-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f2f4f9;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    .sexo-field {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+      min-width: 180px;
+  
+      label {
+        font-weight: 500;
+        white-space: nowrap;
+      }
+  
+      .sexo-opcoes {
+        display: flex;
+        gap: 1.2rem;
+      }
+    }
+  
+    mat-form-field {
+      flex: 1;
+      min-width: 180px;
+    }
+  }
+  
+  

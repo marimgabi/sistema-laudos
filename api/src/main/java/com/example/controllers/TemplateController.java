@@ -26,4 +26,18 @@ public class TemplateController {
         List<TemplateDto> templates = templateService.findByMedicoLogado();
         return ResponseEntity.ok(templates);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TemplateDto> findById(@PathVariable Integer id){
+        TemplateDto templateDto = templateService.findById(id);
+        return ResponseEntity.ok(templateDto);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TemplateDto> update(@PathVariable Integer id,
+                                              @RequestBody TemplateDto templateDto){
+        templateDto = templateService.update(id, templateDto);
+        return ResponseEntity.ok(templateDto);
+    }
+
 }

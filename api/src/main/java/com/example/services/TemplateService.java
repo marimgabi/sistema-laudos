@@ -8,6 +8,7 @@ import com.example.entities.User;
 import com.example.mapper.EntityDtoMapper;
 import com.example.repositories.MedicoRepository;
 import com.example.repositories.TemplateRepository;
+import com.example.utils.PartialMergeUtil;
 import com.example.validator.TemplateValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,5 +59,27 @@ public class TemplateService {
         List<Template> templates = templateRepository.findByMedicosIdAndStatus(medico.getId(), EnumStatus.ATIVO);
 
         return mapper.entityToDtoList(templates, TemplateDto.class);
+    }
+
+    public TemplateDto findById(Integer id){
+        Template template = templateRepository.findByIdAndStatus(id, EnumStatus.ATIVO)
+                .orElseThrow(() -> new IllegalArgumentException("Não foi encontrado template com o id " + id));
+
+        return (TemplateDto) mapper.entityToDto(template, TemplateDto.class);
+    }
+
+    public TemplateDto update(Integer id, TemplateDto templateDto){
+        Template templateOld = templateRepository.findByIdAndStatus(id, EnumStatus.ATIVO)
+                .orElseThrow(() -> new IllegalArgumentException("Não foi encontrado template com id " + id));
+
+        Template templateNew = (Template) mapper.dtoToEntity(templateDto, Template.class);
+
+        PartialMergeUtil.merge(templateOld, templateNew);
+
+        templateValidator.validateUpdate(templateNew);
+
+        templateNew = templateRepository.save(templateNew);
+
+        return (TemplateDto) mapper.entityToDto(templateNew, TemplateDto.class);
     }
 }

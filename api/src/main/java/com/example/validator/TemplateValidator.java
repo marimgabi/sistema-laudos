@@ -18,4 +18,8 @@ public class TemplateValidator extends BaseValidator<Template> {
     public void validateInsert(Template entity){
         validate(entity);
     }
+
+    public void validateUpdate(Template entity){
+        validate(entity);
+    }
 }

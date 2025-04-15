@@ -1,0 +1,33 @@
+<mat-card *ngIf="template" class="template-card">
+    <!-- Botão Voltar no canto -->
+    <div class="top-bar">
+        <button mat-stroked-button color="primary" (click)="voltar()">
+          <mat-icon>arrow_back</mat-icon>
+          Voltar
+        </button>
+      
+        <button mat-flat-button color="primary" [routerLink]="['/templates', template.id, 'editar']">
+            <mat-icon>edit</mat-icon>
+            Editar
+          </button>
+          
+      </div>
+  
+    <!-- Título -->
+    <h2>{{ template.descricao }}</h2>
+  
+    <!-- Tipo -->
+    <p class="tipo"><strong>Tipo:</strong> {{ template.tipo }}</p>
+  
+    <!-- Conteúdo -->
+    <div class="conteudo">
+      <ng-container *ngIf="template.tipo === 'TEXTO'; else htmlContent">
+        <pre class="caixa-texto">{{ template.conteudo }}</pre>
+      </ng-container>
+  
+      <ng-template #htmlContent>
+        <div [innerHTML]="safeHtml" class="html-render"></div>
+      </ng-template>
+    </div>
+  </mat-card>
+  

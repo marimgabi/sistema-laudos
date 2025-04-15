@@ -1,6 +1,7 @@
 package com.example.repositories;
 
 import com.example.Enums.EnumStatus;
+import com.example.Enums.EnumTipoMedico;
 import com.example.entities.Laudo;
 import com.example.entities.Medico;
 import com.example.entities.User;
@@ -32,5 +33,7 @@ public interface MedicoRepository extends JpaRepository<Medico, Integer> {
     Optional<Medico> findByIdAndStatus(Integer id, EnumStatus status);
 
     List<Medico> findAllByStatus(EnumStatus status);
+
+    List<Medico> findAllByStatusAndTipo(EnumStatus status, EnumTipoMedico tipo);
 
 }

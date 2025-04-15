@@ -1,12 +1,14 @@
 package com.example.repositories;
 
 import com.example.Enums.EnumStatus;
+import com.example.entities.Medico;
 import com.example.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -17,5 +19,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query("SELECT u FROM User u WHERE u.email = :email AND u.status = :status")
     Optional<User> findByEmailAndStatus(@Param("email") String email, @Param("status") EnumStatus status);
+
+    @Query("SELECT u FROM User u WHERE u.status = :status")
+    List<User> findAllByStatus(@Param("status") EnumStatus status);
+
+    Optional<User> findByIdAndStatus(Integer id, EnumStatus status);
 
 }

@@ -14,4 +14,6 @@ public class MedicoDto {
 
     private ConselhoDto conselho;
 
+    private UserResumeDto user;
+
 }

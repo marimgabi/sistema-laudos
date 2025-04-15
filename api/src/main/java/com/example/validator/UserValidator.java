@@ -29,8 +29,13 @@ public class UserValidator extends BaseValidator<User> {
         validate(entity);
         validateUniqueUsername(entity);
         validateUniqueEmail(entity);
-        validateMedicoIsNotAdmin(entity);
+        if(entity.getMedicos() != null)
+            validateMedicoIsNotAdmin(entity);
         validateUniqueMedico(entity);
+    }
+
+    public void validateUpdate(User entity){
+        validateFields(entity);
     }
 
     private void validateFields(User entity){

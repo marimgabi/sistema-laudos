@@ -1,0 +1,83 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #232324;
+    padding: 2rem;
+  }
+  
+  mat-card {
+    padding: 1.5rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  
+    h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #314ce0;
+    }
+  
+    button {
+      padding: 0.5rem 1.2rem;
+      font-weight: 500;
+      color: white;
+      background-color: #314ce0;
+  
+      mat-icon {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  
+  .full-width-table {
+    width: 100%;
+  }
+  
+  mat-header-row {
+    background-color: #f5f5f5;
+  }
+  
+  mat-header-cell {
+    font-weight: 600;
+    color: #232324;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 0.5rem;
+  }
+  
+  mat-cell {
+    color: #232324;
+    padding: 0.8rem 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  mat-icon-button {
+    color: #314ce0;
+  
+    &.warn {
+      color: #e53935;
+    }
+  }
+  
+  .icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .link-nome {
+    text-decoration: none;
+    color: #314ce0;
+    font-weight: 500;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }

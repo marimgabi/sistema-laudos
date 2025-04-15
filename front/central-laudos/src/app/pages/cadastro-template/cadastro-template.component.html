@@ -1,0 +1,28 @@
+<mat-card>
+    <h2>Cadastrar Template</h2>
+  
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="descricao" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo" required>
+          <mat-option *ngFor="let tipo of tiposTemplate" [value]="tipo">{{ tipo }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Conteúdo</mat-label>
+        <textarea matInput formControlName="conteudo" rows="6" required></textarea>
+      </mat-form-field>
+  
+      <div class="actions">
+        <button mat-stroked-button type="button" (click)="cancelar()">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Salvar</button>
+      </div>
+    </form>
+  </mat-card>
+  

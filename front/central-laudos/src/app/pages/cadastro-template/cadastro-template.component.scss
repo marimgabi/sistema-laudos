@@ -1,0 +1,36 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: #fff;
+    padding: 2rem;
+  }
+  
+  mat-card {
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #fff;
+  
+    h2 {
+      color: #314ce0;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+  }
+  
+  .form-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  

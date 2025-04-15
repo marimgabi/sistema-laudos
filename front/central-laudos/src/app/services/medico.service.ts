@@ -7,11 +7,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MedicoService {
-  private apiUrl = `${environment.apiUrl}/medicos`;
+  private apiUrl = `${environment.apiUrl}/medico`;
 
   constructor(private http: HttpClient) {}
 
   listar(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
+  }
+
+  inativate(id: number) {
+    return this.http.put(`${environment.apiUrl}/user/${id}/inativate`, {});
   }
 }

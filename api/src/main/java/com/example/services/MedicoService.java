@@ -1,6 +1,7 @@
 package com.example.services;
 
 import com.example.Enums.EnumStatus;
+import com.example.Enums.EnumTipoMedico;
 import com.example.dto.MedicoDto;
 import com.example.entities.Conselho;
 import com.example.entities.Medico;
@@ -45,6 +46,16 @@ public class MedicoService {
 
     public List<MedicoDto> findAll(){
         List<Medico> medicos = medicoRepository.findAllByStatus(EnumStatus.ATIVO);
+        return mapper.entityToDtoList(medicos, MedicoDto.class);
+    }
+
+    public void inativate(Medico medico){
+        medicoValidator.validateInativation(medico);
+        medico.setStatus(EnumStatus.INATIVO);
+    }
+
+    public List<MedicoDto> findAllMedicosByTipo(EnumTipoMedico tipo){
+        List<Medico> medicos = medicoRepository.findAllByStatusAndTipo(EnumStatus.ATIVO, tipo);
         return mapper.entityToDtoList(medicos, MedicoDto.class);
     }
 
