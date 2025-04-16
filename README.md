@@ -24,14 +24,14 @@ Sistema completo para gerenciamento de laudos médicos, voltado para clínicas e
 ### Backend
 
 ```bash
-cd backend/
+cd api/
 ./mvnw spring-boot:run
 ```
 
 ### Frontend
 
 ```bash
-cd frontend/
+cd front/central-laudos
 npm install
 ng serve
 ```
@@ -68,9 +68,3 @@ O sistema possui entidades como `user`, `medico`, `template`, `laudo`, com relac
 </div>
 ```
 
----
-
-## 📫 Contato
-
-Projeto desenvolvido por Gabriela Marim.  
-Dúvidas ou sugestões? Fique à vontade para abrir uma issue ou pull request.
