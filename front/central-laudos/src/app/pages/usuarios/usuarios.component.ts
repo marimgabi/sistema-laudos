@@ -38,7 +38,7 @@ export class UsuariosComponent implements OnInit {
     this.usuarioService.inativate(id).subscribe({
       next: () => {
         this.snackBar.open('Usuário inativado com sucesso!', 'Fechar', { duration: 3000 });
-        this.usuarios = this.usuarios.filter(u => u.id !== id); // remove da tabela
+        this.usuarios = this.usuarios.filter(u => u.id !== id);
       },
       error: (err) => {
         const msg = err?.error?.message || 'Erro ao inativar usuário.';
