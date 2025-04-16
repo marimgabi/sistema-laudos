@@ -40,8 +40,6 @@ ng serve
 
 ## 🗄️ Estrutura do Banco de Dados
 
-![Diagrama ER do banco de dados](docs/der.png)
-
 O sistema possui entidades como `user`, `medico`, `template`, `laudo`, com relacionamentos entre médicos, conselhos, estados e templates vinculados. O relacionamento entre médicos e templates é N:N e os laudos relacionam médico solicitante e médico executante.
 
 ---
